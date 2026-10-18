@@ -2,70 +2,60 @@
 
 ## Deskripsi Proyek
 
-Proyek ini bertujuan untuk melakukan analisis data cuaca London dan membangun model machine learning untuk memprediksi nilai temperatur rata-rata harian (`TG`) berdasarkan fitur cuaca dan informasi tanggal.
+London Weather Regression merupakan proyek machine learning yang bertujuan untuk memprediksi temperatur udara (`TG`) berdasarkan data cuaca London. Proyek ini menggunakan model regresi yang telah dilatih menggunakan data cuaca periode 1979–2023.
 
-Dataset yang digunakan mencakup data cuaca London dari tahun 1979 hingga 2023.
+## Tujuan
 
-## Algoritma
+Proyek ini bertujuan untuk menerapkan metode regresi dalam memprediksi temperatur udara berdasarkan variabel cuaca dan informasi tanggal.
 
-Tiga algoritma regresi yang digunakan dalam proyek ini adalah:
+## Teknologi yang Digunakan
 
-1. **Linear Regression** sebagai model regresi dasar.
-2. **Random Forest Regressor** untuk mempelajari hubungan nonlinier melalui kumpulan pohon keputusan.
-3. **HistGradientBoosting Regressor** untuk membangun model boosting secara bertahap.
+- Python
+- Pandas
+- Scikit-learn
+- Joblib
+- Flask
+- cURL
+
+## Komponen Proyek
+
+- `app.py` atau `testing_deploy.py`: Program API untuk menjalankan prediksi temperatur.
+- `requirements.txt`: Daftar library yang diperlukan.
+- `london_weather_tg_model.pkl`: Model machine learning yang telah dilatih.
+- `data.json`: Contoh data input untuk pengujian API.
+- `london_weather_data_1979_to_2023.csv`: Dataset cuaca London.
+- Notebook Jupyter (`.ipynb`): Dokumentasi proses pengolahan data dan pemodelan, jika tersedia.
+
+## Cara Menjalankan Program
+
+1. Instal library yang diperlukan:
+
+   `pip install -r requirements.txt`
+
+2. Jalankan API melalui terminal:
+
+   `python testing_deploy.py`
+
+   Jika nama file yang digunakan adalah `app.py`, jalankan `python app.py`.
+
+3. Buka alamat berikut pada browser untuk memeriksa apakah API berjalan:
+
+   `http://127.0.0.1:5000`
+
+## Pengujian Prediksi
+
+API menyediakan endpoint `/predict` dengan metode `POST`. Data input dikirim dalam format JSON menggunakan file `data.json`.
+
+Contoh perintah pengujian melalui Windows PowerShell:
+
+`curl.exe -X POST http://127.0.0.1:5000/predict -H "Content-Type: application/json" --data-binary "@data.json"`
+
+Jika berhasil, API akan mengembalikan hasil prediksi dalam format JSON dengan atribut `prediksi_TG`.
+
+## Status Proyek
+
+API telah berhasil dijalankan dan diuji secara lokal. Deployment online belum dikonfirmasi.
 
 ## Dataset
 
-Dataset yang digunakan adalah `london_weather_data_1979_to_2023.csv`.
-
-Target prediksi:
-- `TG`: temperatur rata-rata harian sesuai definisi dan satuan pada sumber dataset.
-
-Kolom tanggal diolah menjadi fitur kalender, sedangkan kolom penanda kualitas data tidak digunakan sebagai fitur prediksi.
-
-## Tahapan Pengerjaan
-
-1. Import library.
-2. Membaca dan memahami dataset.
-3. Eksplorasi data dan visualisasi.
-4. Memeriksa missing values dan data duplikat.
-5. Melakukan preprocessing.
-6. Membagi data training dan testing berdasarkan urutan waktu.
-7. Melatih tiga model regresi.
-8. Mengevaluasi model menggunakan MAE, RMSE, dan R².
-9. Membandingkan performa model dan menyimpan model terbaik.
-
-## Evaluasi Model
-
-- **MAE (Mean Absolute Error):** mengukur rata-rata kesalahan absolut prediksi.
-- **RMSE (Root Mean Squared Error):** mengukur kesalahan prediksi dengan penalti lebih besar untuk kesalahan yang besar.
-- **R² (Coefficient of Determination):** mengukur kemampuan model menjelaskan variasi target.
-
-Model terbaik ditentukan berdasarkan nilai MAE terendah pada data pengujian.
-
-## Struktur Repository
-
-```text
-london-weather-regression/
-├── London_Weather_Regression.ipynb
-├── london_weather_data_1979_to_2023.csv
-├── requirements.txt
-└── README.md
-```
-
-## Cara Menjalankan
-
-1. Unduh atau clone repository ini.
-2. Instal library yang diperlukan:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Pastikan file CSV berada di folder yang sama dengan notebook.
-4. Buka notebook menggunakan Jupyter Notebook atau JupyterLab.
-5. Jalankan cell secara berurutan.
-
-## Catatan
-
-Hasil evaluasi model ditentukan berdasarkan data dan proses eksperimen yang dijalankan. Performa masing-masing algoritma perlu dilihat dari hasil evaluasi aktual, bukan diasumsikan sebelumnya.
+Dataset berisi catatan cuaca London periode 1979–2023 dan digunakan sebagai sumber data dalam pengembangan model prediksi temperatur.
