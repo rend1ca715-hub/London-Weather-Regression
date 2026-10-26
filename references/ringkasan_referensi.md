@@ -14,9 +14,9 @@ This statement supports the interpretation that lower MAE and MSE values indicat
 
 ### Interpretation of the Metrics
 
-- Mean Absolute Error (MAE):** Measures the average absolute difference between actual and predicted values. A value closer to 0 indicates smaller prediction errors.
-- Mean Squared Error (MSE):** Measures the average squared difference between actual and predicted values. A value closer to 0 indicates smaller prediction errors, with larger errors receiving greater penalties.
-- Coefficient of Determination (R²):** Measures how well the model explains the variation in the target variable. A value closer to 1 generally indicates better predictive performance. However, R² can also be negative.
+- Mean Absolute Error (MAE): Measures the average absolute difference between actual and predicted values. A value closer to 0 indicates smaller prediction errors.
+- Mean Squared Error (MSE): Measures the average squared difference between actual and predicted values. A value closer to 0 indicates smaller prediction errors, with larger errors receiving greater penalties.
+- Coefficient of Determination (R²): Measures how well the model explains the variation in the target variable. A value closer to 1 generally indicates better predictive performance. However, R² can also be negative.
 
 ### Conclusion
 
